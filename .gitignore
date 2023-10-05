@@ -4,7 +4,6 @@ bootstrap.js
 bootstrap.json
 bootstrap.jsonp
 build/
-*.python
 classic.json
 classic.jsonp
 ext/

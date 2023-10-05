@@ -17,12 +17,12 @@ function include(file) {
 includecss('https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css');
 includecss('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 includecss('./static/css/style.css');
-
+include('./static/js/lib/chart.min.js');
+include('./static/js/lib/showdown.min.js');
 include('https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js');
 include('./static/js/lib/materialize.min.js');
 include('./static/js/lib/uuid.min.js');
-include('./static/js/lib/chart.min.js');
-include('./static/js/lib/showdown.min.js');
+
 /* import components */
 include('./static/js/components/index.js');
 

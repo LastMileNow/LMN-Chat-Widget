@@ -2,11 +2,7 @@ from http.server import BaseHTTPRequestHandler,HTTPServer
 from urllib import parse
 import json
 class handler(BaseHTTPRequestHandler):
-  def setHeader(s, self):
-    self.send_response(200)
-    self.send_header("Access-Control-Allow-Origin", "*")
-    self.send_header("Access-Control-Allow-Headers", "*")
-    self.send_header("Access-Control-Allow-Methods","*")
+
   def do_OPTIONS(self):
     self.setHeader(self)
     self.end_headers()
@@ -52,12 +48,17 @@ class handler(BaseHTTPRequestHandler):
       print(f"Unexpected {err=}, {type(err)=}")
       ret_obj = [{"text": f"Unexpected {err=}"}]
       self.send_response(200)
-      self.send_header("Access-Control-Allow-Origin", "*")
       self.send_header("Access-Control-Allow-Headers", "*")
+      self.send_header("Access-Control-Allow-Origin", "*")
       self.send_header('Content-type', 'application/json') # 'text/plain' for plain text
       self.end_headers()
       self.wfile.write(json.dumps(ret_obj).encode())
       #self.wfile.close()
+  def setHeader(s, self):
+    self.send_response(200)
+    self.send_header("Access-Control-Allow-Origin", "*")
+    self.send_header("Access-Control-Allow-Headers", "*")
+    self.send_header("Access-Control-Allow-Methods","*")
 
 ## Run the server, for local testing
 def main():
